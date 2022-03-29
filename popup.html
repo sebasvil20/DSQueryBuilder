@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="main.css" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src * 'unsafe-inline' 'unsafe-eval'; script-src * 'unsafe-inline' 'unsafe-eval'; connect-src * 'unsafe-inline'; img-src * data: blob: 'unsafe-inline'; frame-src *; style-src * 'unsafe-inline';"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <label for="margin_select">Margin</label>
+        <select name="margin_select" id="margin_select">
+          <option value="current">Current</option>
+          <option value="archive">Archive</option>
+        </select>
+      </div>
+
+      <div class="row">
+        <label for="app_select">App</label>
+        <select name="app_select" id="app_select">
+          <option value="%.pmethods-admin-fe%">FE Payment Methods</option>
+          <option value="%.mpcs-agreements-fe%">Agreements</option>
+          <option value="%.logos%">Logos</option>
+          <option value="%.processplan-admin-fe%">FE Processplan</option>
+          <option value="%.processplan-admin-me%">ME Processplan</option>
+          <option value="%.pmethods-admin-me%">ME Payment Methods</option>
+        </select>
+      </div>
+
+      <div class="input-row">
+        <div class="field">
+          <label>Local hour</label>
+          <input type="text" id="hour" />
+        </div>
+
+        <div class="field">
+          <label>Minutes</label>
+          <input type="text" id="minute" />
+        </div>
+      </div>
+      <div class="input-row">
+        <div class="field">
+          <label>Day</label>
+          <input type="text" id="day" />
+        </div>
+
+        <div class="field">
+          <label>Month</label>
+          <input type="text" id="month" />
+        </div>
+      </div>
+      <button id="copyButton">Copy query to clipboard</button>
+    </div>
+    <script src="dayjs/dayjs.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

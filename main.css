@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+body {
+  margin: 0px !important;
+  background-color: #364b69 !important;
+  border-radius: 15px !important;
+}
+
+.container {
+  width: max-content;
+  overflow: hidden;
+  height: auto;
+  padding: 30px;
+  background-color: #364b69;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  border-radius: 15px;
+  margin: 0 !important;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  width: 100%;
+  height: 3em;
+  margin-bottom: 10px;
+  padding: 0 4em 0 1em;
+  background: url(./icons/Caret_down_font_awesome_whitevariation.svg) no-repeat
+      right 0.8em center/1.4em,
+    linear-gradient(
+      to left,
+      rgba(255, 255, 255, 0.3) 3em,
+      rgba(255, 255, 255, 0.2) 3em
+    );
+  color: white;
+  border-radius: 0.25em;
+  box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+select option {
+  color: inherit;
+  background-color: #320a28;
+}
+
+select:focus {
+  outline: none;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+.input-row {
+  margin-top: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.row {
+  margin-bottom: 10px;
+}
+
+input:focus {
+  outline: none;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 16px !important;
+}
+
+input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  display: block;
+  appearance: none;
+  border: 0;
+  outline: 0;
+  width: calc(100% - 5px);
+  height: 3em;
+  background-color: transparent;
+  color: white;
+  border: none;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 0.25em;
+  box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+  margin-bottom: 10px;
+  padding: 0 4em 0 1em;
+}
+
+button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 0;
+  outline: 0;
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  height: 3em;
+  background: rgba(177, 196, 248, 0.39);
+  border-radius: 0.25em;
+  box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+  margin-bottom: 10px;
+  color: white;
+  font-size: 19px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  background: rgba(89, 83, 121, 0.404);
+}

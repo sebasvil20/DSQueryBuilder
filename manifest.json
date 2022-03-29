@@ -1,0 +1,15 @@
+{
+  "name": "DataSuite Query Builder",
+  "description": "Building a query have never be so easy",
+  "version": "1.0",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "128": "./icons/128.png"
+    }
+  },
+  "icons": {
+    "128": "./icons/128.png"
+  }
+}
