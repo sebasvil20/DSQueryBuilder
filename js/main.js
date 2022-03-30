@@ -17,11 +17,11 @@ function generateAndCopyQuery() {
   let date = dayjs(defDate).hour(hour).minute(minute)
   date = localToGMT4(defDate, date)
   let query = `SELECT request_method, request_uri, status, request_time, ds, pool_to FROM traffic.access_logs_${margin} WHERE status >= 499 AND ds >= '2022-${getNumber(
-    date.subtract(2, 'm').month()
-  )}-${getNumber(date.subtract(2, 'm').date())}T${getNumber(
-    date.subtract(2, 'm').hour()
+    date.subtract(10, 'm').month()
+  )}-${getNumber(date.subtract(10, 'm').date())}T${getNumber(
+    date.subtract(10, 'm').hour()
   )}_${getNumber(
-    date.subtract(2, 'm').minute()
+    date.subtract(10, 'm').minute()
   )}_00' AND ds <= '2022-${getNumber(date.add(10, 'm').month())}-${getNumber(
     date.add(10, 'm').date()
   )}T${getNumber(date.add(10, 'm').hour())}_${getNumber(
