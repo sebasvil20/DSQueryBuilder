@@ -6,6 +6,10 @@ function getNumber(n) {
   return n < 10 ? '0' + n : '' + n
 }
 
+const twelveMinutes = 12 * 60000
+const sixtyMinutes = 60 * 60000
+const minsInHour = 60
+
 function generateAndCopyQuery() {
   let margin = document.getElementById('margin_select').value
   let app = document.getElementById('app_select').value
@@ -13,19 +17,20 @@ function generateAndCopyQuery() {
   let hour = document.getElementById('hour').value
   let day = document.getElementById('day').value
   let month = document.getElementById('month').value
-  let defDate = new Date(2022, month, day)
-  let date = dayjs(defDate).hour(hour).minute(minute)
-  date = localToGMT4(defDate, date)
+  var date = localToGMT4(new Date(`2022-${getNumber(month)}-${getNumber(day)}T${getNumber(hour)}:${getNumber(minute)}:00`))
+  var actualDateMLs = date.getTime()
+  var dateMore = new Date(actualDateMLs + twelveMinutes)
+  var dateLess = new Date(actualDateMLs - twelveMinutes)
   let query = `SELECT request_method, request_uri, status, request_time, ds, pool_to FROM traffic.access_logs_${margin} WHERE status >= 499 AND ds >= '2022-${getNumber(
-    date.subtract(10, 'm').month()
-  )}-${getNumber(date.subtract(10, 'm').date())}T${getNumber(
-    date.subtract(10, 'm').hour()
+    dateLess.getMonth() + 1
+  )}-${getNumber(dateLess.getDate())}T${getNumber(
+    dateLess.getHours()
   )}_${getNumber(
-    date.subtract(10, 'm').minute()
-  )}_00' AND ds <= '2022-${getNumber(date.add(10, 'm').month())}-${getNumber(
-    date.add(10, 'm').date()
-  )}T${getNumber(date.add(10, 'm').hour())}_${getNumber(
-    date.add(10, 'm').minute()
+    dateLess.getMinutes()
+  )}_00' AND ds <= '2022-${getNumber(dateLess.getMonth() + 1)}-${getNumber(
+    dateMore.getDate()
+  )}T${getNumber(dateMore.getHours())}_${getNumber(
+    dateMore.getMinutes()
   )}_00' AND pool_to LIKE '${app}'`
   navigator.clipboard.writeText(query)
   changeButtonText()
@@ -41,11 +46,11 @@ function changeButtonText() {
   }, 3000)
 }
 
-function localToGMT4(defDate, date) {
-  const minsInHour = 60
+function localToGMT4(defDate) {
+  var numberOfMlSeconds = defDate.getTime()
 
   if ((defDate.getTimezoneOffset() / minsInHour) == 5)  {
-    return date.add(1, 'h')
+    return new Date(numberOfMlSeconds + sixtyMinutes)
   }
-  else return date.subtract(1, 'h')
+  else return new Date(numberOfMlSeconds - sixtyMinutes)
 }
