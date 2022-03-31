@@ -1,7 +1,7 @@
 {
   "name": "DataSuite Query Builder",
   "description": "Building a query have never be so easy",
-  "version": "1.0",
+  "version": "1.0.4",
   "manifest_version": 3,
   "action": {
     "default_popup": "popup.html",
