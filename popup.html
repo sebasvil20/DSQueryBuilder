@@ -24,7 +24,7 @@
         </select>
       </div>
 
-      <div class="input-row">
+      <div class="input-row" id="hoursMinutes">
         <div class="field">
           <label>Local hour</label>
           <input type="text" id="hour" />
@@ -35,6 +35,14 @@
           <input type="text" id="minute" />
         </div>
       </div>
+
+      <div class="input-row hidden" id="hoursRounded">
+        <div class="field">
+          <label>Initial hour (Local time)</label>
+          <input type="text" id="initialHour" />
+        </div>
+      </div>
+
       <div class="input-row">
         <div class="field">
           <label>Day</label>
@@ -48,7 +56,6 @@
       </div>
       <button id="copyButton">Copy query to clipboard</button>
     </div>
-    <script src="dayjs/dayjs.min.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>

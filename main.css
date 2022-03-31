@@ -118,3 +118,7 @@ button {
 button:hover {
   background: rgba(89, 83, 121, 0.404);
 }
+
+.hidden {
+  display: none;
+}
